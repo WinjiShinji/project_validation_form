@@ -1,0 +1,45 @@
+# When a person signs up as a user, or when an administrator enrolls a user, they must complete the user information form. On this form, do not enter characters that might not be supported. Regardless of which characters you are able to enter on the user information form, user ID and passwords are limited to the valid characters described here. You can specify other characters in the First Name and Last Name fields. 
+
+# If your company policy is more restrictive, you can provide that information to your users in the enrollment form help or as inline help directly on the form.
+
+# Avoid trouble: IBM Business Automation Workflow cannot create user IDs or passwords that contain spaces, although it fully supports any existing user IDs and passwords or those created in the user repository that contain spaces.
+
+# Under normal circumstances, a valid user ID and password can contain the following characters:
+
+-- Basic:
+- Lowercase characters {a-z}
+- Uppercase characters {A-Z}
+- Numbers {0-9}
+- Underscore {_}; this is the only supported special character in IBM i
+- Exclamation point {!}
+- Exclamation mark {!}
+- Question mark {?}
+- Percent sign {%}
+- Number sign {#}
+- Dollar sign {$}
+- Ampersand {&}
+- Plus sign {+}
+- Asterisk {*}
+
+-- Thorough:
+- Semicolon {;}
+- Colon {:}
+- Circumflex accent {^}
+- Equals sign {=}
+- Tilde {~}
+- Grave accent {`}
+- Open parenthesis {(}
+- Close parenthesis {)}
+- Open bracket {[}
+- Close bracket {]}
+
+- Dash {-}; this character is not supported as the first character in the user ID or password
+- Period {.}; this character is not supported as the first character in the user ID or password
+- Commercial at {@} (this character is not supported when creating the IBM Business Automation Workflow administrator during installation)
+
+# Avoid trouble: These are all ASCII characters. Non-ASCII characters are not allowed for a username or password.
+
+# My RegEx:
+
+- Basic
+"^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[?!$&_#@+-])[a-zA-Z0-9?!$&_#@+-]{8,}$"
